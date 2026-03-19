@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Início do Blog {% endblock %}
+
+{% block content %}
+    <h2>Bem-vindo ao meu blog!</h2>
+    <p>Este é o início do meu Blog. Através dele você conhecerá mais sobre mim.</p>
+    <a href="{% url 'user'%}">Ir para o Perfil do Usuário</a>
+{% endblock %}
