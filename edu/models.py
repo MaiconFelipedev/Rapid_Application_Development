@@ -33,7 +33,7 @@ class Publica(models.Model):
             models.UniqueConstraint(fields=['livro', 'autor'], name='unique_livro_autor')
         ]
 
-        def __str__(self):
-            return f"{self.autor.nome} -> {self.livro.titulo}"
+    def __str__(self):
+        return f"{self.autor.nome} -> {self.livro.titulo}"
 
 
