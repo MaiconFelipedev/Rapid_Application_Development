@@ -1,0 +1,24 @@
+{% extends 'edu/base.html' %}
+
+{% block content %}
+<h2>Editoras</h2>
+<a href="{% url 'editora_create' %}" class="btn btn-primary mb-3">Nova Editora</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Ações</th>
+    </tr>
+    {% for editora in editoras %}
+    <tr>
+        <td>{{ editora.id }}</td>
+        <td>{{ editora.nome }}</td>
+        <td>
+            <a href="{% url 'editora_update' editora.id %}" class="btn btn-warning btn-sm">Editar</a>
+            <a href="{% url 'editora_delete' editora.id %}" class="btn btn-danger btn-sm">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

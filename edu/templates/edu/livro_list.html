@@ -1,0 +1,34 @@
+{% extends 'edu/base.html' %}
+
+{% block content %}
+<h2>Livros</h2>
+<a href="{% url 'livro_create' %}" class="btn btn-primary mb-3">Novo Livro</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>ISBN</th>
+        <th>Título</th>
+        <th>Publicação</th>
+        <th>Preço</th>
+        <th>Estoque</th>
+        <th>Editora</th>
+        <th>Ações</th>
+    </tr>
+    {% for livro in livros %}
+    <tr>
+        <td>{{ livro.id }}</td>
+        <td>{{ livro.isbn }}</td>
+        <td>{{ livro.titulo }}</td>
+        <td>{{ livro.publicacao }}</td>
+        <td>{{ livro.preco }}</td>
+        <td>{{ livro.estoque }}</td>
+        <td>{{ livro.editora.nome }}</td>
+        <td>
+            <a href="{% url 'livro_update' livro.id %}" class="btn btn-warning btn-sm">Editar</a>
+            <a href="{% url 'livro_delete' livro.id %}" class="btn btn-danger btn-sm">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

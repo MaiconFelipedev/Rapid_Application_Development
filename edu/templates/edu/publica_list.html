@@ -1,0 +1,26 @@
+{% extends 'edu/base.html' %}
+
+{% block content %}
+<h2>Publicações</h2>
+<a href="{% url 'publica_create' %}" class="btn btn-primary mb-3">Nova Publicação</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Livro</th>
+        <th>Autor</th>
+        <th>Ações</th>
+    </tr>
+    {% for publicacao in publicacoes %}
+    <tr>
+        <td>{{ publicacao.id }}</td>
+        <td>{{ publicacao.livro.titulo }}</td>
+        <td>{{ publicacao.autor.nome }}</td>
+        <td>
+            <a href="{% url 'publica_update' publicacao.id %}" class="btn btn-warning btn-sm">Editar</a>
+            <a href="{% url 'publica_delete' publicacao.id %}" class="btn btn-danger btn-sm">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
