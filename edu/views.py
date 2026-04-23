@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Autor, Editora, Livro, Publica
 from .forms import AutorForm, EditoraForm, LivroForm, PublicaForm
 
@@ -78,10 +79,26 @@ def editora_delete(request, id):
 
 
 # ---------------- LIVRO ----------------
-def livro_list(request):
-    livros = Livro.objects.all()
-    return render(request, 'edu/livro_list.html', {'livros': livros})
+ 
+# def livro_list(request):
+#    livros = Livro.objects.all()
+#    return render(request, 'edu/livro_list.html', {'livros': livros})
 
+
+def livro_list(request):
+    livros_list = Livro.objects.all().order_by('id')
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(livros_list, 10)  # 10 livros por página
+
+    try:
+        livros = paginator.page(page)
+    except PageNotAnInteger:
+        livros = paginator.page(1)
+    except EmptyPage:
+        livros = paginator.page(paginator.num_pages)
+
+    return render(request, 'edu/livro_list.html', {'livros': livros})
 
 def livro_create(request):
     if request.method == 'POST':
