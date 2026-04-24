@@ -38,13 +38,19 @@
 </table>
 
 {% if livros.has_other_pages %}
-<nav aria-label="Paginação dos livros">
+<nav aria-label="Paginação dos livros" class="d-flex justify-content-center mt-4">
     <ul class="pagination">
         {% if livros.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1">Primeira</a>
+        </li>
             <li class="page-item">
                 <a class="page-link" href="?page={{ livros.previous_page_number }}">Anterior</a>
             </li>
         {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">Primeira</span>
+            </li>
             <li class="page-item disabled">
                 <span class="page-link">Anterior</span>
             </li>
@@ -66,9 +72,15 @@
             <li class="page-item">
                 <a class="page-link" href="?page={{ livros.next_page_number }}">Próximo</a>
             </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ livros.paginator.num_pages }}">Última</a>
+            </li>
         {% else %}
             <li class="page-item disabled">
                 <span class="page-link">Próximo</span>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link">Última</span>
             </li>
         {% endif %}
     </ul>
