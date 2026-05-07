@@ -8,16 +8,34 @@
 </head>
 <body>
     <div class="container mt-4">
-        <h1 class="mb-4">Prática 06 - Django Pagination</h1>
+        <h1 class="mb-4">Prática 07 - Django Authentication</h1>
 
-        <nav class="mb-4">
+        <nav class="mb-4 d-flex align-items-center gap-2 flex-wrap">
+            <a href="{% url 'home' %}" class="btn btn-outline-primary btn-sm">Início</a>
             <a href="{% url 'autor_list' %}" class="btn btn-outline-primary btn-sm">Autores</a>
             <a href="{% url 'editora_list' %}" class="btn btn-outline-primary btn-sm">Editoras</a>
             <a href="{% url 'livro_list' %}" class="btn btn-outline-primary btn-sm">Livros</a>
             <a href="{% url 'publica_list' %}" class="btn btn-outline-primary btn-sm">Publicações</a>
+
+            {% if request.user.is_authenticated %}
+                <span class="ms-3">Olá, {{ request.user.username }}</span>
+                <form 
+                    method="post" 
+                    action="{% url 'logout' %}" 
+                    style="display:inline;"
+                >
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger btn-sm">Sair</button>
+                </form>
+            {% else %}
+            <a href="{% url 'signin' %}" class="btn btn-outline-primary btn-sm ms-3">Entrar</a>
+            <a href="{% url 'signup' %}" class="btn btn-outline-success btn-sm">Cadastrar</a>
+            {% endif %}
+
         </nav>
 
-        {% block content %}{% endblock %}
+        {% block content %}
+        {% endblock %}
     </div>
 </body>
 </html>
