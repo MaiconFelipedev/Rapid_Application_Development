@@ -4,6 +4,7 @@ from .models import Autor, Editora, Livro, Publica
 from .forms import AutorForm, EditoraForm, LivroForm, PublicaForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import permission_required
 from django.http import HttpResponseNotAllowed
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.shortcuts import render, redirect
@@ -131,7 +132,6 @@ def editora_delete(request, id):
 #    livros = Livro.objects.all()
 #    return render(request, 'edu/livro_list.html', {'livros': livros})
 
-
 def livro_list(request):
     livros_list = Livro.objects.all().order_by('id')
     page = request.GET.get('page', 1)
@@ -147,7 +147,7 @@ def livro_list(request):
 
     return render(request, 'edu/livro_list.html', {'livros': livros})
 
-@login_required
+@permission_required('edu.add_livro', raise_exception=True)
 def livro_create(request):
     if request.method == 'POST':
         form = LivroForm(request.POST)
@@ -158,7 +158,7 @@ def livro_create(request):
         form = LivroForm()
     return render(request, 'edu/form.html', {'form': form, 'titulo': 'Cadastrar Livro'})
 
-@login_required
+@permission_required('edu.change_livro', raise_exception=True)
 def livro_update(request, id):
     livro = get_object_or_404(Livro, id=id)
     if request.method == 'POST':
@@ -170,7 +170,7 @@ def livro_update(request, id):
         form = LivroForm(instance=livro)
     return render(request, 'edu/form.html', {'form': form, 'titulo': 'Editar Livro'})
 
-@login_required
+@permission_required('edu.delete_livro', raise_exception=True)
 def livro_delete(request, id):
     livro = get_object_or_404(Livro, id=id)
     if request.method == 'POST':

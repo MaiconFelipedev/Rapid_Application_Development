@@ -2,7 +2,12 @@
 
 {% block content %}
 <h2>Livros</h2>
-<a href="{% url 'livro_create' %}" class="btn btn-primary mb-3">Novo Livro</a>
+
+{% if perms.edu.add_livro %}
+<a href="{% url 'livro_create' %}" class="btn btn-primary mb-3">
+    Novo Livro
+</a>
+{% endif %}
 
 <table class="table table-bordered">
     <tr>
@@ -26,8 +31,18 @@
         <td>{{ livro.estoque }}</td>
         <td>{{ livro.editora.nome }}</td>
         <td>
-            <a href="{% url 'livro_update' livro.id %}" class="btn btn-warning btn-sm">Editar</a>
-            <a href="{% url 'livro_delete' livro.id %}" class="btn btn-danger btn-sm">Excluir</a>
+            {% if perms.edu.change_livro %}
+            <a href="{% url 'livro_update' livro.id %}" class="btn btn-warning btn-sm">
+                Editar
+            </a>
+            {% endif %}
+
+            {% if perms.edu.delete_livro %}
+            <a href="{% url 'livro_delete' livro.id %}" class="btn btn-danger btn-sm">
+                Excluir
+            </a>
+            {% endif %}
+
         </td>
     </tr>
     {% empty %}
