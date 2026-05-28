@@ -35,5 +35,3 @@ class Publica(models.Model):
 
     def __str__(self):
         return f"{self.autor.nome} -> {self.livro.titulo}"
-
-
