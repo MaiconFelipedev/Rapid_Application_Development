@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import get_user_model
 from .models import Autor, Editora, Livro, Publica
+from django.utils.translation import gettext_lazy as _
 
 
 class SignUpForm(UserCreationForm):
@@ -51,7 +52,18 @@ class EditoraForm(forms.ModelForm):
 class LivroForm(forms.ModelForm):
     class Meta:
         model = Livro
+
         fields = ['isbn', 'titulo', 'publicacao', 'preco', 'estoque', 'editora']
+
+        labels = {
+            'isbn': _('ISBN'),
+            'titulo': _('Título'),
+            'publicacao': _('Data de Publicação'),
+            'preco': _('Preço'),
+            'estoque': _('Estoque'),
+            'editora': _('Editora'),
+        }
+
         widgets = {
             'isbn': forms.TextInput(attrs={'class': 'form-control'}),
             'titulo': forms.TextInput(attrs={'class': 'form-control'}),

@@ -1,11 +1,12 @@
 {% extends 'edu/base.html' %}
+{% load i18n %}
 
 {% block content %}
 <h2>{{ titulo }}</h2>
-<p>Deseja realmente excluir: <strong>{{ obj }}</strong>?</p>
+<p> {% translate "Deseja realmente excluir" %}: <strong>{{ obj }}</strong>?</p>
 
 <form method="post">
     {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Excluir</button>
+    <button type="submit" class="btn btn-danger">{% translate "Excluir" %}</button>
 </form>
 {% endblock %}

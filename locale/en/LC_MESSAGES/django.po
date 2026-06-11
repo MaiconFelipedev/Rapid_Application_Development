@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-11 17:46-0300\n"
+"PO-Revision-Date: 2026-06-11 17:16-0300\n"
+"Last-Translator: Maicon Felipe EMAIL@ADDRESS\n"
+"Language-Team: English en@li.org\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: edu/forms.py:59 edu/templates/edu/livro_list.html:16
+msgid "ISBN"
+msgstr "ISBN"
+
+#: edu/forms.py:60 edu/templates/edu/livro_list.html:17
+msgid "Título"
+msgstr "Title"
+
+#: edu/forms.py:61
+msgid "Data de Publicação"
+msgstr "Publication Date"
+
+#: edu/forms.py:62 edu/templates/edu/livro_list.html:19
+msgid "Preço"
+msgstr "Price"
+
+#: edu/forms.py:63 edu/templates/edu/livro_list.html:20
+msgid "Estoque"
+msgstr "Stock"
+
+#: edu/forms.py:64 edu/templates/edu/livro_list.html:21
+msgid "Editora"
+msgstr "Publisher"
+
+#: edu/templates/edu/base.html:17
+msgid "Início"
+msgstr "Home"
+
+#: edu/templates/edu/base.html:18
+msgid "Autores"
+msgstr "Authors"
+
+#: edu/templates/edu/base.html:19
+msgid "Editoras"
+msgstr "Publishers"
+
+#: edu/templates/edu/base.html:20 edu/templates/edu/livro_list.html:5
+msgid "Livros"
+msgstr "Books"
+
+#: edu/templates/edu/base.html:21
+msgid "Publicações"
+msgstr "Publications"
+
+#: edu/templates/edu/base.html:31
+msgid "Sair"
+msgstr "Logout"
+
+#: edu/templates/edu/base.html:34
+msgid "Entrar"
+msgstr "Login"
+
+#: edu/templates/edu/base.html:35
+msgid "Cadastrar"
+msgstr "Register"
+
+#: edu/templates/edu/base.html:54
+msgid "Alterar idioma"
+msgstr "Change language"
+
+#: edu/templates/edu/confirm_delete.html:6
+msgid "Deseja realmente excluir"
+msgstr "Do you really want to delete"
+
+#: edu/templates/edu/confirm_delete.html:10
+#: edu/templates/edu/livro_list.html:43
+msgid "Excluir"
+msgstr "Delete"
+
+#: edu/templates/edu/form.html:10
+msgid "Salvar"
+msgstr "Save"
+
+#: edu/templates/edu/livro_list.html:9
+msgid "Novo Livro"
+msgstr "New Book"
+
+#: edu/templates/edu/livro_list.html:15
+msgid "ID"
+msgstr "ID"
+
+#: edu/templates/edu/livro_list.html:18
+msgid "Publicação"
+msgstr "Publication"
+
+#: edu/templates/edu/livro_list.html:22
+msgid "Ações"
+msgstr "Actions"
+
+#: edu/templates/edu/livro_list.html:37
+msgid "Editar"
+msgstr "Edit"
+
+#: edu/views.py:70
+msgid "Cadastrar Autor"
+msgstr "Register Author"
+
+#: edu/views.py:82
+msgid "Editar Autor"
+msgstr "Edit Author"
+
+#: edu/views.py:90
+msgid "Excluir Autor"
+msgstr "Delete Author"
+
+#: edu/views.py:107
+msgid "Cadastrar Editora"
+msgstr "Register Publisher"
+
+#: edu/views.py:119
+msgid "Editar Editora"
+msgstr "Edit Publisher"
+
+#: edu/views.py:127
+msgid "Excluir Editora"
+msgstr "Delete Publisher"
+
+#: edu/views.py:160
+msgid "Cadastrar Livro"
+msgstr "Register Book"
+
+#: edu/views.py:171
+msgid "Editar Livro"
+msgstr "Edit Book"
+
+#: edu/views.py:179
+msgid "Excluir Livro"
+msgstr "Delete Book"
+
+#: edu/views.py:196
+msgid "Cadastrar Publicação"
+msgstr "Register Publication"
+
+#: edu/views.py:208
+msgid "Editar Publicação"
+msgstr "Edit Publication"
+
+#: edu/views.py:216
+msgid "Excluir Publicação"
+msgstr "Delete Publication"

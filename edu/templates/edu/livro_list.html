@@ -1,24 +1,25 @@
 {% extends 'edu/base.html' %}
+{% load i18n %}
 
 {% block content %}
-<h2>Livros</h2>
+<h2>{% translate "Livros" %}</h2>
 
 {% if perms.edu.add_livro %}
 <a href="{% url 'livro_create' %}" class="btn btn-primary mb-3">
-    Novo Livro
+    {% translate "Novo Livro" %}
 </a>
 {% endif %}
 
 <table class="table table-bordered">
     <tr>
-        <th>ID</th>
-        <th>ISBN</th>
-        <th>Título</th>
-        <th>Publicação</th>
-        <th>Preço</th>
-        <th>Estoque</th>
-        <th>Editora</th>
-        <th>Ações</th>
+        <th>{% translate "ID" %}</th>
+        <th>{% translate "ISBN" %}</th>
+        <th>{% translate "Título" %}</th>
+        <th>{% translate "Publicação" %}</th>
+        <th>{% translate "Preço" %}</th>
+        <th>{% translate "Estoque" %}</th>
+        <th>{% translate "Editora" %}</th>
+        <th>{% translate "Ações" %}</th>
     </tr>
 
     {% for livro in livros %}
@@ -33,13 +34,13 @@
         <td>
             {% if perms.edu.change_livro %}
             <a href="{% url 'livro_update' livro.id %}" class="btn btn-warning btn-sm">
-                Editar
+                {% translate "Editar" %}
             </a>
             {% endif %}
 
             {% if perms.edu.delete_livro %}
             <a href="{% url 'livro_delete' livro.id %}" class="btn btn-danger btn-sm">
-                Excluir
+                {% translate "Excluir" %}
             </a>
             {% endif %}
 

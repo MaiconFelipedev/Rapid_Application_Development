@@ -9,6 +9,7 @@ from django.http import HttpResponseNotAllowed
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, SignInForm
+from django.utils.translation import gettext as _
 
 def home(request):
     return redirect('livro_list')
@@ -66,7 +67,7 @@ def autor_create(request):
             return redirect('autor_list')
     else:
         form = AutorForm()
-    return render(request, 'edu/form.html', {'form': form, 'titulo': 'Cadastrar Autor'})
+    return render(request, 'edu/form.html', {'form': form, 'titulo': _('Cadastrar Autor')})
 
 @login_required
 def autor_update(request, id):
@@ -78,7 +79,7 @@ def autor_update(request, id):
             return redirect('autor_list')
     else:
         form = AutorForm(instance=autor)
-    return render(request, 'edu/form.html', {'form': form, 'titulo': 'Editar Autor'})
+    return render(request, 'edu/form.html', {'form': form, 'titulo': _('Editar Autor')})
 
 @login_required
 def autor_delete(request, id):
@@ -86,7 +87,7 @@ def autor_delete(request, id):
     if request.method == 'POST':
         autor.delete()
         return redirect('autor_list')
-    return render(request, 'edu/confirm_delete.html', {'obj': autor, 'titulo': 'Excluir Autor'})
+    return render(request, 'edu/confirm_delete.html', {'obj': autor, 'titulo': _('Excluir Autor')})
 
 
 # ---------------- EDITORA ----------------
@@ -103,7 +104,7 @@ def editora_create(request):
             return redirect('editora_list')
     else:
         form = EditoraForm()
-    return render(request, 'edu/form.html', {'form': form, 'titulo': 'Cadastrar Editora'})
+    return render(request, 'edu/form.html', {'form': form, 'titulo': _('Cadastrar Editora')})
 
 @login_required
 def editora_update(request, id):
@@ -115,7 +116,7 @@ def editora_update(request, id):
             return redirect('editora_list')
     else:
         form = EditoraForm(instance=editora)
-    return render(request, 'edu/form.html', {'form': form, 'titulo': 'Editar Editora'})
+    return render(request, 'edu/form.html', {'form': form, 'titulo': _('Editar Editora')})
 
 @login_required
 def editora_delete(request, id):
@@ -123,7 +124,7 @@ def editora_delete(request, id):
     if request.method == 'POST':
         editora.delete()
         return redirect('editora_list')
-    return render(request, 'edu/confirm_delete.html', {'obj': editora, 'titulo': 'Excluir Editora'})
+    return render(request, 'edu/confirm_delete.html', {'obj': editora, 'titulo': _('Excluir Editora')})
 
 
 # ---------------- LIVRO ----------------
@@ -156,8 +157,7 @@ def livro_create(request):
             return redirect('livro_list')
     else:
         form = LivroForm()
-    return render(request, 'edu/form.html', {'form': form, 'titulo': 'Cadastrar Livro'})
-
+    return render(request, 'edu/form.html', {'form': form, 'titulo': _('Cadastrar Livro')})
 @permission_required('edu.change_livro', raise_exception=True)
 def livro_update(request, id):
     livro = get_object_or_404(Livro, id=id)
@@ -168,7 +168,7 @@ def livro_update(request, id):
             return redirect('livro_list')
     else:
         form = LivroForm(instance=livro)
-    return render(request, 'edu/form.html', {'form': form, 'titulo': 'Editar Livro'})
+    return render(request, 'edu/form.html', {'form': form, 'titulo': _('Editar Livro')})
 
 @permission_required('edu.delete_livro', raise_exception=True)
 def livro_delete(request, id):
@@ -176,7 +176,7 @@ def livro_delete(request, id):
     if request.method == 'POST':
         livro.delete()
         return redirect('livro_list')
-    return render(request, 'edu/confirm_delete.html', {'obj': livro, 'titulo': 'Excluir Livro'})
+    return render(request, 'edu/confirm_delete.html', {'obj': livro, 'titulo': _('Excluir Livro')})
 
 
 # ---------------- PUBLICA ----------------
@@ -193,7 +193,7 @@ def publica_create(request):
             return redirect('publica_list')
     else:
         form = PublicaForm()
-    return render(request, 'edu/form.html', {'form': form, 'titulo': 'Cadastrar Publicação'})
+    return render(request, 'edu/form.html', {'form': form, 'titulo': _('Cadastrar Publicação')})
 
 @login_required
 def publica_update(request, id):
@@ -205,7 +205,7 @@ def publica_update(request, id):
             return redirect('publica_list')
     else:
         form = PublicaForm(instance=publicacao)
-    return render(request, 'edu/form.html', {'form': form, 'titulo': 'Editar Publicação'})
+    return render(request, 'edu/form.html', {'form': form, 'titulo': _('Editar Publicação')})
 
 @login_required
 def publica_delete(request, id):
@@ -213,4 +213,4 @@ def publica_delete(request, id):
     if request.method == 'POST':
         publicacao.delete()
         return redirect('publica_list')
-    return render(request, 'edu/confirm_delete.html', {'obj': publicacao, 'titulo': 'Excluir Publicação'})
+    return render(request, 'edu/confirm_delete.html', {'obj': publicacao, 'titulo': _('Excluir Publicação')})
